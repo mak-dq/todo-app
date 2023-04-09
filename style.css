@@ -32,12 +32,11 @@ body {
 
 .input-button button {
   font-size: 20px;
-  /* border-radius: 4px; */
   cursor: pointer !important;
   color: rgb(79, 76, 76);
   font-weight: bold;
   padding: 4px 10px;
-  border: 1px solid rgba(3, 95, 44, 0.473);
+  border: none;
   background-color: rgb(64, 214, 132);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }

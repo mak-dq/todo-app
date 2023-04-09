@@ -2,7 +2,33 @@ let input = document.getElementById("text-input");
 let tasks = document.getElementById("tasks");
 (window.onload = loadTasks), input.focus();
 
-const loadTasks = () => {};
+function loadTasks() {
+  let allTasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+  tasks.innerHTML = "";
+  allTasks.forEach((task) => {
+    let li = document.createElement("li");
+    if (task.completed) {
+      li.innerHTML = `
+      <div class="check-text">
+          <input type="checkbox" onclick="markComplete(this, ${task.id})" checked>
+          <p>${task.task}</p>
+      </div>
+      <button onclick="removeTask(this, ${task.id})">x</button>
+      `;
+      li.children[0].children[0].nextElementSibling.style.textDecoration =
+        "line-through";
+    } else {
+      li.innerHTML = `
+      <div class="check-text">
+          <input type="checkbox" onclick="markComplete(this, ${task.id})">
+          <p>${task.task}</p>
+      </div>
+      <button onclick="removeTask(this, ${task.id})">x</button>
+      `;
+    }
+    tasks.appendChild(li);
+  });
+}
 
 const markComplete = (e, x) => {
   // console.log("x :>> ", e, x);
