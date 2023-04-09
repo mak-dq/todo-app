@@ -1,0 +1,83 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+.container {
+  background-color: rgb(206, 223, 226);
+  padding: 30px;
+  width: 40%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#text-input {
+  padding: 5px;
+  font-size: 17px;
+  width: 79%;
+}
+
+.input-button button {
+  font-size: 17px;
+  border-radius: 4px;
+  cursor: pointer !important;
+  color: black;
+  padding: 4px 10px;
+  border: 1px solid rgba(3, 95, 44, 0.473);
+  background-color: rgb(64, 214, 132);
+}
+
+.input-button button:hover {
+  background-color: rgb(85, 224, 148);
+}
+
+.input-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+li {
+  margin: 10px 3px;
+  cursor: pointer;
+  background-color: rgb(243, 240, 240);
+  padding: 0 20px;
+  height: 50px;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li button {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  background-color: rgba(218, 116, 98, 0.856);
+}
+li button:hover {
+  background-color: rgba(224, 93, 70, 0.856);
+}
+
+.check-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.check-text input {
+  margin-right: 20px;
+}
+
+.check-text p {
+  text-decoration: none;
+}
+
+#tasks {
+  padding: 0 !important;
+}
