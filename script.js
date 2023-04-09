@@ -1,6 +1,8 @@
 let input = document.getElementById("text-input");
 let tasks = document.getElementById("tasks");
 
+const loadTasks = () => {};
+
 const markComplete = (e, x) => {
   console.log("x :>> ", e, x);
   let allTasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
@@ -19,6 +21,11 @@ const markComplete = (e, x) => {
 
 const removeTask = (x) => {
   console.log("x :>> ", x);
+  let allTasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+  allTasks = allTasks.filter((tasks) => tasks.id !== x);
+  localStorage.setItem("tasks", JSON.stringify(allTasks));
+
+  loadTasks();
 };
 
 const addTask = () => {
