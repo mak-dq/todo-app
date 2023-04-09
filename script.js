@@ -1,10 +1,11 @@
 let input = document.getElementById("text-input");
 let tasks = document.getElementById("tasks");
+(window.onload = loadTasks), input.focus();
 
 const loadTasks = () => {};
 
 const markComplete = (e, x) => {
-  console.log("x :>> ", e, x);
+  // console.log("x :>> ", e, x);
   let allTasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
   allTasks.forEach((task) => {
     if (task.id === x) {
@@ -19,13 +20,13 @@ const markComplete = (e, x) => {
       : "line-through";
 };
 
-const removeTask = (x) => {
-  console.log("x :>> ", x);
+const removeTask = (e, x) => {
+  // console.log("x :>> ", e, x);
   let allTasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
   allTasks = allTasks.filter((tasks) => tasks.id !== x);
   localStorage.setItem("tasks", JSON.stringify(allTasks));
 
-  loadTasks();
+  e.parentElement.remove();
 };
 
 const addTask = () => {
@@ -51,11 +52,10 @@ const addTask = () => {
     </div>
     <button onclick="removeTask(${taskId})">x</button>
     `;
+  tasks.appendChild(li);
 
   input.value = "";
   input.focus();
-
-  tasks.appendChild(li);
 };
 
 input.addEventListener("keypress", function (event) {
