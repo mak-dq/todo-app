@@ -38,3 +38,10 @@ const addTask = () => {
 
   tasks.appendChild(li);
 };
+
+input.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    addTask();
+  }
+});
