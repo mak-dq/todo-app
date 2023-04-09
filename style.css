@@ -81,3 +81,7 @@ li button:hover {
 #tasks {
   padding: 0 !important;
 }
+
+.checked {
+  text-decoration: line-through;
+}

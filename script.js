@@ -1,8 +1,20 @@
 let input = document.getElementById("text-input");
 let tasks = document.getElementById("tasks");
 
-const markComplete = (x) => {
-  console.log("x :>> ", x);
+const markComplete = (e, x) => {
+  console.log("x :>> ", e, x);
+  let allTasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
+  allTasks.forEach((task) => {
+    if (task.id === x) {
+      task.completed = !task.completed;
+    }
+  });
+  localStorage.setItem("tasks", JSON.stringify(allTasks));
+
+  e.nextElementSibling.style.textDecoration =
+    e.nextElementSibling.style.textDecoration === "line-through"
+      ? "none"
+      : "line-through";
 };
 
 const removeTask = (x) => {
@@ -27,7 +39,7 @@ const addTask = () => {
   let li = document.createElement("li");
   li.innerHTML = `
     <div class="check-text">
-        <input type="checkbox" onclick="markComplete(${taskId})">
+        <input type="checkbox" onclick="markComplete(this, ${taskId})">
         <p>${input.value}</p>
     </div>
     <button onclick="removeTask(${taskId})">x</button>
