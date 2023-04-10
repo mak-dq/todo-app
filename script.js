@@ -76,7 +76,7 @@ const addTask = () => {
         <input type="checkbox" onclick="markComplete(this, ${taskId})">
         <p>${input.value}</p>
     </div>
-    <button onclick="removeTask(${taskId})">x</button>
+    <button onclick="removeTask(this, ${taskId})">x</button>
     `;
   tasks.appendChild(li);
 
